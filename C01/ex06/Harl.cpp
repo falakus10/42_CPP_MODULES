@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 16:14:12 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:14:13 by falakus          ###   ########.fr       */
+/*   Created: 2025/09/02 16:14:29 by falakus           #+#    #+#             */
+/*   Updated: 2025/09/02 16:14:30 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,19 @@ void Harl::complain( std::string level )
     while (i < 4 && levels[i] != level)
         i++;
 
-    if (i < 4)
-        (this->*funcs[i])();
+    switch (i)
+    {
+    case 0:
+        (this->*funcs[0])();
+    case 1:
+        (this->*funcs[1])();
+    case 2:
+        (this->*funcs[2])();
+    case 3:
+        (this->*funcs[3])();
+        break;
+    default:
+        std::cout << "Wrong level" << std::endl;
+        break;
+    }
 }

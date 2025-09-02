@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 16:12:57 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:58 by falakus          ###   ########.fr       */
+/*   Created: 2025/09/02 16:14:37 by falakus           #+#    #+#             */
+/*   Updated: 2025/09/02 17:36:04 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {}
-
-Zombie::~Zombie()
+int main(int ac, char **av)
 {
-    std::cout << name << " is destroyed" << std::endl;
-}
+	Harl harl;
 
-void Zombie::announce(void)
-{
-    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    if (ac != 2)
+    {
+        std::cout << "Error: wrong number of arguments" << std::endl;
+        return (1);
+    }
+
+	harl.complain(av[1]);
+	return (0);
 }
