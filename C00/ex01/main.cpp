@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:13 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:14 by falakus          ###   ########.fr       */
+/*   Updated: 2025/09/16 15:20:53 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int main(void)
 
 	while (1)
 	{
-		std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
-		std::cin >> input;
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+		if (!getline(std::cin, input))
+		if (input.empty())
+			break;
 		if (input == "ADD")
 			phonebook.add_contact();
 		else if (input == "SEARCH")

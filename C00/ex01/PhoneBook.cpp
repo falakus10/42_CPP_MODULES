@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:18 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:19 by falakus          ###   ########.fr       */
+/*   Updated: 2025/11/16 17:31:15 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook()
 {
 	this->index = 0;
+	this->count = 0;
 }
 
 PhoneBook::~PhoneBook()
@@ -22,42 +23,148 @@ PhoneBook::~PhoneBook()
 	std::cout << "Exit" << std::endl;
 }
 
-int is_valid_number(std::string str)
+int	check_argument(std::string input, char argument_type)
 {
-	int i = 0;
-	while (str[i])
+	int	i = 0;
+	int error = 1;
+	
+	if (argument_type == 'F' || argument_type == 'L')
 	{
-		if (!isdigit(str[i]))
+		while (input[i])
 		{
-			std::cout << "Invalid phone number. Please enter digits only:" << std::endl;
-			return (1);
+			if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z'))
+			{
+				error = 0;
+				break;
+			}
+			i++;
 		}
-		i++;
 	}
-	return (0);
+	if (argument_type == 'N')
+	{
+		while (input[i])
+		{
+			if (input[i] > 32 && input[i] < 127)
+			{
+				error = 0;
+				break;
+			}
+			i++;
+		}
+	}
+	if (argument_type == 'P')
+	{
+		error = 0;
+		while (input[i])
+		{
+			if (!isdigit(input[i]))
+			{
+				error = 1;
+				break;
+			}
+			i++;
+		}
+	}
+	if (argument_type == 'D')
+	{
+		while (input[i])
+		{
+			if (input[i] > 32 && input[i] < 127)
+			{
+				error = 0;
+				break;
+			}
+			i++;
+		}
+	}
+	return (error);
 }
+
 
 void PhoneBook::add_contact(void)
 {
-	std::string input;
+	std::string	input;
 
 	std::cout << "Enter first name: " << std::endl;
-	std::cin >> input;
-	contacts[index].set_first_name(input);
+	while (1)
+	{
+		if (!getline(std::cin, input))
+			exit(1);
+		if(check_argument(input, 'F'))
+		{
+			std::cout << "Invalid name. Please enter again." <<std:: endl;
+			std::cout << "Enter first name: " << std::endl;
+		}
+		else
+		{
+			contacts[index].set_first_name(input);
+			break;
+		}
+	}
 	std::cout << "Enter last name: " << std::endl;
-	std::cin >> input;
-	contacts[index].set_last_name(input);
+	while (1)
+	{
+		if (!getline(std::cin, input))
+			exit(1);
+		if(check_argument(input, 'L'))
+		{
+			std::cout << "Invalid last name. Please enter again." <<std:: endl;
+			std::cout << "Enter last name: " << std::endl;
+		}
+		else
+		{
+			contacts[index].set_last_name(input);
+			break;
+		}
+	}
 	std::cout << "Enter nickname: " << std::endl;
-	std::cin >> input;
-	contacts[index].set_nickname(input);
+	while (1)
+	{
+		if (!getline(std::cin, input))
+			exit(1);
+		if(check_argument(input, 'N'))
+		{
+			std::cout << "Invalid nick name. Please enter again." <<std:: endl;
+			std::cout << "Enter nickname: " << std::endl;
+		}
+		else
+		{
+			contacts[index].set_nick_name(input);
+			break;
+		}
+	}
 	std::cout << "Enter phone number: " << std::endl;
-	std::cin >> input;
-	while (is_valid_number(input))
-		std::cin >> input;
-	contacts[index].set_phone_number(input);
+	while (1)
+	{
+		if (!getline(std::cin, input))
+			exit(1);
+		if(check_argument(input, 'P'))
+		{
+			std::cout << "Invalid phone number. Please enter again." <<std:: endl;
+			std::cout << "Enter phone number: " << std::endl;
+		}
+		else
+		{
+			contacts[index].set_phone_number(input);
+			break;
+		}
+	}
 	std::cout << "Enter darkest secret: " << std::endl;
-	std::cin >> input;
-	contacts[index].set_darkest_secret(input);
+	while (1)
+	{
+		if (!getline(std::cin, input))
+			exit(1);
+		if(check_argument(input, 'D'))
+		{
+			std::cout << "Invalid darkest secret. Please enter again." <<std:: endl;
+			std::cout << "Enter darkest secret: " << std::endl;
+		}
+		else
+		{
+			contacts[index].set_darkest_secret(input);
+			break;
+		}
+	}
 	index = (index + 1) % 8;
 	count++;
 }
@@ -79,7 +186,9 @@ void PhoneBook::search_contact(void)
 		contact_cnt = this->index;
 	else
 		contact_cnt = 8;
-	std::cout << "   Index   | First Name |  Last Name | Nickname  " << std::endl;
+	std::cout <<"THIS COUNt    " <<this->count<< std::endl;
+	
+	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	while (i < contact_cnt)
 	{
@@ -87,14 +196,17 @@ void PhoneBook::search_contact(void)
 		i++;
 	}
 	std::cout << "Enter index to view details: " << std::endl;
-	std::cin >> input;
+	if (!getline(std::cin, input))
+		exit(1);
+	index = input[0] - '0';
 	while (!(input.length() == 1 && isdigit(input[0]) && (input[0] - '0') < contact_cnt))
 	{
 		std::cout << "Invalid index." << std::endl;
 		std::cout << "Enter index to view details: " << std::endl;
-		std::cin >> input;
+		if (!getline(std::cin, input))
+			break;
+		index = input[0] - '0';
 	}
-	index = input[0] - '0';
 	std::cout << "First Name: " << contacts[index].get_first_name() << std::endl;
 	std::cout << "Last Name: " << contacts[index].get_last_name() << std::endl;
 	std::cout << "Nickname: " << contacts[index].get_nickname() << std::endl;

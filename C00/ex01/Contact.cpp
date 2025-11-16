@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:06 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:07 by falakus          ###   ########.fr       */
+/*   Updated: 2025/11/16 15:47:00 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void Contact::set_last_name(std::string str)
 	this->last_name = str;
 }
 
-void Contact::set_nickname(std::string str)
+void Contact::set_nick_name(std::string str)
 {
 	this->nickname = str;
 }
@@ -74,15 +74,15 @@ std::string	Contact::get_darkest_secret(void)
 std::string format_field(const std::string &str)
 {
     if (str.length() > 10)
-        return str.substr(0, 9) + ".";
+		return str.substr(0, 9) + ".";
     return str;
 }
 
 
 void Contact::print_contact(int index)
 {
-    std::cout << std::setw(10) << index << " | ";
-    std::cout << std::setw(10) << format_field(first_name) << " | ";
-    std::cout << std::setw(10) << format_field(last_name) << " | ";
+    std::cout << std::setw(10) << index << "|";
+    std::cout << std::setw(10) << format_field(first_name) << "|";
+    std::cout << std::setw(10) << format_field(last_name) << "|";
     std::cout << std::setw(10) << format_field(nickname) << std::endl;
 }

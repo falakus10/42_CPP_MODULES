@@ -6,11 +6,13 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:13:59 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:14:00 by falakus          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:12:49 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 int main(int ac, char **av)
 {

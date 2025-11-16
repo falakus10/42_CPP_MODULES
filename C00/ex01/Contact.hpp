@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:11 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:12 by falakus          ###   ########.fr       */
+/*   Updated: 2025/11/16 15:47:05 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Contact
 
 		void	set_first_name(std::string str);
 		void	set_last_name(std::string str);
-		void	set_nickname(std::string str);
+		void	set_nick_name(std::string str);
 		void	set_phone_number(std::string str);
 		void	set_darkest_secret(std::string str);
 		std::string	get_first_name(void);

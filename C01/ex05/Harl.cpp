@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:12 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:14:13 by falakus          ###   ########.fr       */
+/*   Updated: 2025/11/16 13:20:02 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ void Harl::complain( std::string level )
 
     if (i < 4)
         (this->*funcs[i])();
+    else
+        std::cout << "Undefined Complain" << std::endl;
 }

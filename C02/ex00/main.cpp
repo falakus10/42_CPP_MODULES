@@ -2,13 +2,6 @@
 
 int main( void )
 {
-
-
-    /*
-    
-    BİR ŞEY HATALLLLLLLLLLLLIIIIIIIIIIIIIIIIIIIIII
-    
-    */
     Fixed a;
     Fixed b( a );
     Fixed c;
