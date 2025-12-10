@@ -17,17 +17,17 @@ Fixed :: Fixed(const float f_number)
     fp_value = static_cast<int>(roundf(f_number * (1 << fractional_bits)));
 }
 
-Fixed:: Fixed(const Fixed &other)
+Fixed:: Fixed(const Fixed &next)
 {
     std::cout << "Copy constructor called" << std::endl;
-    this->fp_value = other.getRawBits();
+    this->fp_value = next.getRawBits();
 }
 
-Fixed &Fixed:: operator=(const Fixed &other)
+Fixed &Fixed:: operator=(const Fixed &next)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &other)
-        this->fp_value = other.getRawBits();
+    if (this != &next)
+        this->fp_value = next.getRawBits();
     return (*this);
 }
 
