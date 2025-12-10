@@ -9,7 +9,6 @@ Fixed :: Fixed(const int i_number)
 {
     std::cout << "Int constructor called" << std::endl;
     fp_value = (i_number << fractional_bits);
-    std::cout << fp_value << std:: endl;
 }
 
 Fixed :: Fixed(const float f_number)
