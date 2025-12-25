@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:18 by falakus           #+#    #+#             */
-/*   Updated: 2025/11/16 17:31:15 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/21 19:07:46 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,9 @@ int	check_argument(std::string input, char argument_type)
 	{
 		while (input[i])
 		{
-			if ((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z'))
-			{
+			if (((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z')))
 				error = 0;
-				break;
-			}
-			i++;
-		}
-	}
-	if (argument_type == 'N')
-	{
-		while (input[i])
-		{
-			if (input[i] > 32 && input[i] < 127)
-			{
-				error = 0;
-				break;
-			}
-			i++;
-		}
-	}
-	if (argument_type == 'P')
-	{
-		error = 0;
-		while (input[i])
-		{
-			if (!isdigit(input[i]))
+			else
 			{
 				error = 1;
 				break;
@@ -65,13 +42,29 @@ int	check_argument(std::string input, char argument_type)
 			i++;
 		}
 	}
-	if (argument_type == 'D')
+	if (argument_type == 'N' || argument_type == 'D')
 	{
 		while (input[i])
 		{
 			if (input[i] > 32 && input[i] < 127)
-			{
 				error = 0;
+			else
+			{
+				error = 1;
+				break;
+			}
+			i++;
+		}
+	}
+	if (argument_type == 'P')
+	{
+		while (input[i])
+		{
+			if (input[i] >= '0' && input[i] <= '9')
+				error = 0;
+			else
+			{
+				error = 1;
 				break;
 			}
 			i++;
@@ -186,7 +179,6 @@ void PhoneBook::search_contact(void)
 		contact_cnt = this->index;
 	else
 		contact_cnt = 8;
-	std::cout <<"THIS COUNt    " <<this->count<< std::endl;
 	
 	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
