@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:13:24 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:13:25 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 17:30:57 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int main()
     std::cout << "The value pointed to by stringPTR: " << *stringPTR << std::endl;
     std::cout << "The value pointed to by stringREF: " << stringREF << std::endl;
 
-    return 0;
+    return (0);
 }

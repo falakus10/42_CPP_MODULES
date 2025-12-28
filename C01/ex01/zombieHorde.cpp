@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:13:19 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:13:20 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/27 14:52:18 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ Zombie *Zombie::zombieHorde(int N, std::string name)
     {
         horde[i].name = name;
     }
-    return horde;
+    return (horde);
 }

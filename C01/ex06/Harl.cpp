@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:29 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:14:30 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 18:16:37 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ void Harl::complain( std::string level )
 {
     int i;
     std::string levels[4];
-    void (Harl::*funcs[4])(void);
-
+    void (Harl::*functions[4])(void);  
     levels[0] = "DEBUG";
     levels[1] = "INFO";
     levels[2] = "WARNING";
     levels[3] = "ERROR";
 
-    funcs[0] = &Harl::debug;
-    funcs[1] = &Harl::info;
-    funcs[2] = &Harl::warning;
-    funcs[3] = &Harl::error;
+    functions[0] = &Harl::debug;
+    functions[1] = &Harl::info;
+    functions[2] = &Harl::warning;
+    functions[3] = &Harl::error;
 
     i = 0;
     while (i < 4 && levels[i] != level)
@@ -58,14 +57,14 @@ void Harl::complain( std::string level )
 
     switch (i)
     {
-    case 0:
-        (this->*funcs[0])();
-    case 1:
-        (this->*funcs[1])();
-    case 2:
-        (this->*funcs[2])();
-    case 3:
-        (this->*funcs[3])();
+        case 0:
+            (this->*functions[0])();
+        case 1:
+            (this->*functions[1])();
+        case 2:
+            (this->*functions[2])();
+        case 3:
+            (this->*functions[3])();
         break;
     default:
         std::cout << "Wrong level" << std::endl;

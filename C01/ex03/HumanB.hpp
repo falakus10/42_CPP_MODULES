@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:13:42 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:13:43 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 17:44:43 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class HumanB
 {
     private:
         std::string name;
-        Weapon *weapon;    
+        Weapon *weapon;
     
     public:
         HumanB(std::string name);

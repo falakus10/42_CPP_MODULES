@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:13:54 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:13:55 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 18:08:28 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
 		Weapon();
 		Weapon(std::string type);
 		~Weapon();
-		std::string &getType();
+		const std::string &getType() const;
 		void setType(std::string type);
 };
 

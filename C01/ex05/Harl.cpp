@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:14:12 by falakus           #+#    #+#             */
-/*   Updated: 2025/11/16 13:20:02 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 18:10:22 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,24 @@ void Harl::complain( std::string level )
 {
     int i;
     std::string levels[4];
-    void (Harl::*funcs[4])(void);
-
+    void (Harl::*functions[4])(void);
+    
     levels[0] = "DEBUG";
     levels[1] = "INFO";
     levels[2] = "WARNING";
     levels[3] = "ERROR";
 
-    funcs[0] = &Harl::debug;
-    funcs[1] = &Harl::info;
-    funcs[2] = &Harl::warning;
-    funcs[3] = &Harl::error;
+    functions[0] = &Harl::debug;
+    functions[1] = &Harl::info;
+    functions[2] = &Harl::warning;
+    functions[3] = &Harl::error;
 
     i = 0;
     while (i < 4 && levels[i] != level)
         i++;
 
     if (i < 4)
-        (this->*funcs[i])();
+        (this->*functions[i])();
     else
         std::cout << "Undefined Complain" << std::endl;
 }

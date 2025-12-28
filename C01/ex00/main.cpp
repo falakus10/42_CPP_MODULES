@@ -6,7 +6,7 @@
 /*   By: falakus <falakus@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:12:48 by falakus           #+#    #+#             */
-/*   Updated: 2025/09/02 16:12:49 by falakus          ###   ########.fr       */
+/*   Updated: 2025/12/28 16:05:25 by falakus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int main()
 
     Zombie zombie2("StackZombie");
     zombie2.randomChump("Frank");
-    return 0;
+    return (0);
 }
