@@ -7,7 +7,7 @@ int main()
     Point a(0.0f, 0.0f);
     Point b(0.0f, 15.0f);
     Point c(15.0f, 0.0f);
-    Point point(1.0f, 2.0f);
+    Point point(2.0f, 3.0f);
     
     answer = bsp(a, b, c, point);
     if (answer)
