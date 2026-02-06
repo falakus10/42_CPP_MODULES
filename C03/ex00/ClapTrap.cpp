@@ -2,7 +2,7 @@
 
 ClapTrap :: ClapTrap()
 {
-    _name = "He Who Must Not Be Named"
+    _name = "He Who Must Not Be Named";
     hit_point = 10;
     energy_point = 10;
     attack_damage = 0;
