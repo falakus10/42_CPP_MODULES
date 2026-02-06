@@ -29,6 +29,7 @@ ScavTrap &ScavTrap :: operator=(const ScavTrap &next)
     {
         ClapTrap::operator=(next);
     }
+    std::cout <<"ScavTrap Copy assigment operator called !!!" <<std::endl;
     return (*this);
 }
 
