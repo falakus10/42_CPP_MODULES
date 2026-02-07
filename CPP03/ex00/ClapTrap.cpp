@@ -40,7 +40,7 @@ ClapTrap :: ~ClapTrap()
 void ClapTrap :: attack(const std::string& target)
 {
     if (this->energy_point == 0 )
-        std::cout << "There isn't any energy point for this ClapTrap !" << std::endl;
+        std::cout << "There isn't any energy point for this ClapTrap!" << std::endl;
     else if (this->hit_point == 0)
         std::cout << "There isn't any hit point for this ClapTrap!" << std::endl;
     else
@@ -49,15 +49,15 @@ void ClapTrap :: attack(const std::string& target)
 
 void ClapTrap :: takeDamage(unsigned int amount)
 {
-    std::cout << "Attack caused " << amount << " point of damage !" << std::endl;
+    std::cout << "Attack caused " << amount << " point of damage to this ClapTrap!" << std::endl;
 }
 
 void ClapTrap :: beRepaired(unsigned int amount)
 {
     if (this->energy_point == 0)
-        std::cout << "You don't have any energy points. You can't repair!" << std::endl; 
+        std::cout << "You don't have any energy points. You can't repair this ClapTrap!" << std::endl; 
     else
-        std::cout << "Repair is succesful " << amount << " points gained !" << std::endl;
+        std::cout << "Repair is succesful " << amount << " points gained for this ClapTrap!" << std::endl;
 }
 
 

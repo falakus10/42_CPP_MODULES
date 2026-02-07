@@ -20,7 +20,7 @@ FragTrap :: FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap ::FragTrap(const FragTrap &next) :ClapTrap(next)
 {
-    std::cout << "StavTrap copy constructor called !!!" << std::endl;
+    std::cout << "FragTrap copy constructor called !!!" << std::endl;
 }
 
 FragTrap &FragTrap :: operator=(const FragTrap &next)

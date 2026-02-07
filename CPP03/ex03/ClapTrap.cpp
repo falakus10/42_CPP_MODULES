@@ -34,7 +34,7 @@ ClapTrap &ClapTrap :: operator=(const ClapTrap &next)
 
 ClapTrap :: ~ClapTrap()
 {
-    std::cout << "ClapTrap Destructor called !!!" << std::endl;
+    std::cout << "ClapTrap destructor called !!!" << std::endl;
 }
 
 void ClapTrap :: attack(const std::string& target)
@@ -49,15 +49,15 @@ void ClapTrap :: attack(const std::string& target)
 
 void ClapTrap :: takeDamage(unsigned int amount)
 {
-    std::cout << "Attack caused " << amount << " point of damage !" << std::endl;
+    std::cout << "Attack caused " << amount << " point of damage to this ClapTrap!" << std::endl;
 }
 
 void ClapTrap :: beRepaired(unsigned int amount)
 {
     if (this->energy_point == 0)
-        std::cout << "You don't have any energy points. You can't repair!" << std::endl; 
+        std::cout << "You don't have any energy points. You can't repair this ClapTrap!" << std::endl; 
     else
-        std::cout << "Repair is succesful " << amount << " points gained !" << std::endl;
+        std::cout << "Repair is succesful " << amount << " points gained for this ClapTrap!" << std::endl;
 }
 
 

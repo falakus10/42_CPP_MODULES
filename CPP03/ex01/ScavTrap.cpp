@@ -20,7 +20,7 @@ ScavTrap :: ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap ::ScavTrap(const ScavTrap &next) :ClapTrap(next)
 {
-    std::cout << "StavTrap copy constructor called !!!" << std::endl;
+    std::cout << "ScavTrap copy constructor called !!!" << std::endl;
 }
 
 ScavTrap &ScavTrap :: operator=(const ScavTrap &next)

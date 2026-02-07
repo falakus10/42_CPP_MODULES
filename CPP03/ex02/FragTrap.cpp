@@ -20,7 +20,7 @@ FragTrap :: FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap ::FragTrap(const FragTrap &next) :ClapTrap(next)
 {
-    std::cout << "StavTrap copy constructor called !!!" << std::endl;
+    std::cout << "FragTrap copy constructor called !!!" << std::endl;
 }
 
 FragTrap &FragTrap :: operator=(const FragTrap &next)
@@ -40,5 +40,5 @@ FragTrap :: ~FragTrap()
 
 void FragTrap :: highFivesGuys(void)
 {
-	std::cout << "I request the highest of fives !!!" << std::endl;
+	std::cout << this->_name << " requests the highest of fives !!!" << std::endl;
 }
