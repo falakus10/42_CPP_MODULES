@@ -1,0 +1,33 @@
+#include "Dog.hpp"
+
+Dog :: Dog() : Animal("Dog")
+{
+	std::cout << "Dog default constructor called !!!" << std::endl;
+}
+
+Dog :: Dog(std::string type) : Animal(type)
+{
+	std::cout << "Dog string constructor called !!!" << std::endl;
+}
+
+Dog :: Dog(const Dog &next) : Animal(next)
+{
+	std::cout << "Dog copy constructor called !!!" << std::endl;
+}
+
+Dog &Dog :: operator=(const Dog &next)
+{
+	Animal :: operator=(next);
+	std::cout << "Dog copy assigment operator called !!!" << std::endl;
+	return (*this);
+}
+
+Dog :: ~Dog()
+{
+	std::cout << "Dog destructor called !!!" <<std::endl;
+}
+
+void Dog :: makeSound() const
+{
+	std::cout << "Baarrrkk Barrrkkk" <<std::endl;
+}
