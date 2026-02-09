@@ -2,11 +2,13 @@
 
 Dog :: Dog() : Animal("Dog")
 {
+	dog_brain = new Brain;
 	std::cout << "Dog default constructor called !!!" << std::endl;
 }
 
 Dog :: Dog(std::string type) : Animal(type)
 {
+	dog_brain = new Brain;
 	std::cout << "Dog string constructor called !!!" << std::endl;
 }
 
@@ -24,10 +26,16 @@ Dog &Dog :: operator=(const Dog &next)
 
 Dog :: ~Dog()
 {
+	delete dog_brain;
 	std::cout << "Dog destructor called !!!" <<std::endl;
 }
 
 void Dog :: makeSound() const
 {
 	std::cout << "Baarrrkk Barrrkkk" <<std::endl;
+}
+
+std::string Dog :: getIdea(int index) const
+{
+	return(dog->getIdea(index));
 }

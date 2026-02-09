@@ -2,6 +2,8 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#define RESET   "\033[0m"
+#define BLUE    "\033[34m"
 
 class Animal
 {
