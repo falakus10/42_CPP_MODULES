@@ -1,4 +1,4 @@
-#include "WrongAnimal.hpp"
+#include "../includes/WrongAnimal.hpp"
 
 WrongAnimal :: WrongAnimal()
 {
@@ -12,17 +12,19 @@ WrongAnimal :: WrongAnimal(std::string _type)
 	std::cout << "WrongAnimal string constructor called !!!" << std::endl;
 }
 
-WrongAnimal :: WrongAnimal(const WrongAnimal &next)
+WrongAnimal :: WrongAnimal(const WrongAnimal &next) : type(next.type)
 {
-	*this = next;
 	std::cout << "WrongAnimal Copy constructor called !!!" << std::endl;
 }
 
 WrongAnimal &WrongAnimal :: operator=(const WrongAnimal &next)
 {
-	type = next.type;
-	std::cout << "WrongAnimal copy assigment operator called !!!" << std::endl;
-	return (*this);
+    if (this != &next)
+    {
+        type = next.type;
+    }
+    std::cout << "WrongAnimal copy assigment operator called !!!" << std::endl;
+    return (*this);
 }
 
 WrongAnimal :: ~WrongAnimal()

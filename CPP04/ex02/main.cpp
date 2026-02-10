@@ -1,6 +1,6 @@
 #include "includes/Cat.hpp"
 #include "includes/Dog.hpp"
-#include "includes/WrongCat.hpp"
+#include <iostream>
 
 int main()
 {
@@ -46,15 +46,7 @@ int main()
     cat2.setIdea("I want some milk!", 0);
     std::cout << "Cat1's idea: " << cat1.getIdea(0) << std::endl;
     std::cout << "Cat2's idea: " << cat2.getIdea(0) << std::endl;
-
     std::cout << "---------------------------------" << std::endl;
-
-    std::cout << BLUE << "Incorrect polymorphism implementation" << RESET << std::endl;
-    WrongAnimal* wrongAnimal = new WrongCat();
-    wrongAnimal->makeSound();
-    std::cout << "---------------------------------" << std::endl;
-
-    delete wrongAnimal;
 
     return (0);
 }

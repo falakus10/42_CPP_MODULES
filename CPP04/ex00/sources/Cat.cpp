@@ -1,4 +1,4 @@
-#include "Cat.hpp"
+#include "../includes/Cat.hpp"
 
 Cat :: Cat() : Animal("Cat")
 {
@@ -15,12 +15,17 @@ Cat :: Cat(const Cat &next) : Animal(next)
 	std::cout << "Cat copy constructor called !!!" << std::endl;
 }
 
-Cat &Cat :: operator=(const Cat &next)
+Cat &Cat::operator=(const Cat &next)
 {
-	Animal :: operator=(next);
-	std::cout << "Cat copy assigment operator called !!!" << std::endl;
-	return (*this);
+    if (this == &next)
+        return (*this);
+
+    Animal::operator=(next);
+
+    std::cout << "Cat copy assigment operator called !!!" << std::endl;
+    return (*this);
 }
+
 
 Cat :: ~Cat()
 {
