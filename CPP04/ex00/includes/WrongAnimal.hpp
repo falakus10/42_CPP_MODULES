@@ -13,7 +13,7 @@ class WrongAnimal
 		WrongAnimal(const WrongAnimal &next);
 		WrongAnimal &operator=(const WrongAnimal &next);
 		~WrongAnimal();
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

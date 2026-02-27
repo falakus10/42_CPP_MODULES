@@ -5,8 +5,12 @@ Brain :: Brain()
 	std::cout << "Brain default constructor called !!!" << std::endl;
 }
 
-Brain :: Brain(const Brain &next) : ideas(next.ideas)
+Brain :: Brain(const Brain &next)
 {
+	for (int i = 0; i < 100; i++)
+	{
+		ideas[i] = next.ideas[i];
+	}
 	std::cout << "Brain Copy constructor called !!!" << std::endl;
 }
 

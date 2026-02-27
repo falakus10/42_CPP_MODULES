@@ -1,6 +1,6 @@
-NAME = Abstract
+NAME = Interface
 
-SRCS = main.cpp sources/Animal.cpp sources/Cat.cpp sources/Dog.cpp sources/WrongAnimal.cpp sources/WrongCat.cpp sources/Brain.cpp
+SRCS = main.cpp sources/AMateria.cpp sources/Character.cpp sources/Cure.cpp sources/Ice.cpp sources/ICharacter.cpp sources/IMateriaSource.cpp sources/MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
