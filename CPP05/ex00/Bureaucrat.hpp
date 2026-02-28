@@ -19,9 +19,22 @@ class Bureaucrat
 		~Bureaucrat();
 		std::string getName();
 		int getGrade();
-		void setName(std::string name);
 		void setGrade(int grade);
+		void incrementGrade();
+		void decrementGrade();
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
+
+std::ostream operator<<(std::ostream &os, const Bureaucrat &next);
 
 
 #endif
