@@ -5,17 +5,19 @@ Bureaucrat :: Bureaucrat() : _name("James Gordon"), _grade(3)
 	std::cout << "Default constructor called !!!" << std::endl;
 }
 
-Bureaucrat :: Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat :: Bureaucrat(std::string name, int grade)
 {
 	if (grade < 1 || grade > 150)
 	{
 		std::cout << "Grade should be between 1-150" << std::endl;
 		return ;
 	}
+	_name = name;
+	_grade = grade;
 	std::cout << "Parameter constructor called !!!" << std::endl;
 }
 
-Bureaucrat :: Bureaucrat(const Bureaucrat &next)  : _name(next._name), _grade(next._grade)
+Bureaucrat :: Bureaucrat(const Bureaucrat &next)
 {
 	std::cout << "Copy constructor called !!!" << std::endl;
 }
@@ -23,6 +25,8 @@ Bureaucrat :: Bureaucrat(const Bureaucrat &next)  : _name(next._name), _grade(ne
 Bureaucrat &Bureaucrat :: operator=(const Bureaucrat &next)
 {
 	if (this != &next)
+	{
+		this->_name = next._name;
 		this->_grade = next._grade;
 
 	std::cout << "Copy assigment operator called !!!" << std::endl;
@@ -45,7 +49,7 @@ int Bureaucrat :: getGrade()
 
 void Bureaucrat :: setGrade(int grade)
 {
-	this->_grade = grade;
+
 }
 
 void Bureaucrat :: incrementGrade()
