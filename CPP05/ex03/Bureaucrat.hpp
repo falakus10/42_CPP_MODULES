@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "AForm.hpp"
 
 #define HIGHEST_GRADE	1
@@ -28,6 +28,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(AForm &form);
+		void executeForm(const AForm &form) const;
 		class GradeTooHighException : public std::exception
 		{
 			public:

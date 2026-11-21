@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "Form.hpp"
 
 #define HIGHEST_GRADE	1

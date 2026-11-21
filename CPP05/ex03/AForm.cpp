@@ -6,7 +6,7 @@ AForm :: AForm() : form_name("contract"), grade_to_sign(4), grade_to_execute(5)
 }
 
 AForm :: AForm(std::string name, const int sign_grade, const int execute_grade)
-				: form_name(name), grade_to_sign(sign_grade), grade_to_execute(execute_grade)
+				: form_name(name), is_signed(false), grade_to_sign(sign_grade), grade_to_execute(execute_grade)
 {
 	if (grade_to_sign > LOWEST_GRADE || grade_to_execute > LOWEST_GRADE)
 		throw AForm::GradeTooLowException();
@@ -81,7 +81,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 }
 
 
-std::ostream& operator<<(std::ostream &os, AForm &next)
+std::ostream& operator<<(std::ostream &os, const AForm &next)
 {
 	os << "AForm name: " << next.getName() << "\nIs signed: " << next.is_it_signed() << "\nGrade to Sign: "<<
 		next.get_grade_to_sign() << "\nGrade to Execute: " << next.get_grade_to_execute() << std::endl; 

@@ -8,10 +8,7 @@ Bureaucrat :: Bureaucrat() : _name("James Gordon"), _grade(3)
 Bureaucrat :: Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (grade < HIGHEST_GRADE)
-	{
-		std::cout << "ne alakaaa" <<std::endl;
 		throw GradeTooHighException();
-	}
 	else if (grade > LOWEST_GRADE)
 		throw GradeTooLowException();
 	else

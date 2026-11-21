@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-#include <string.h>
+#include <string>
 
 #define HIGHEST_GRADE	1
 #define LOWEST_GRADE	150

@@ -11,21 +11,14 @@ int main()
 	RobotomyRequestForm robotomy("Bender");
 	PresidentialPardonForm pardon("Alice");
 
-	try
-	{
-		shrubbery.beSigned(bureaucrat);
-		shrubbery.execute(bureaucrat);
+	bureaucrat.signForm(shrubbery);
+	bureaucrat.executeForm(shrubbery);
 
-		robotomy.beSigned(bureaucrat);
-		robotomy.execute(bureaucrat);
+	bureaucrat.signForm(robotomy);
+	bureaucrat.executeForm(robotomy);
 
-		pardon.beSigned(bureaucrat);
-		pardon.execute(bureaucrat);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	bureaucrat.signForm(pardon);
+	bureaucrat.executeForm(pardon);
 
 	return 0;
 }

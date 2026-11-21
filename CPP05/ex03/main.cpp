@@ -15,36 +15,28 @@ int main()
 	AForm* pardon = intern.makeForm("presidential pardon", "Alice");
 	AForm* unknown = intern.makeForm("unknown form", "target");
 
-	try
+	if (shrubbery)
 	{
-		if (shrubbery)
-		{
-			shrubbery->beSigned(bureaucrat);
-			shrubbery->execute(bureaucrat);
-			delete shrubbery;
-		}
-
-		if (robotomy)
-		{
-			robotomy->beSigned(bureaucrat);
-			robotomy->execute(bureaucrat);
-			delete robotomy;
-		}
-
-		if (pardon)
-		{
-			pardon->beSigned(bureaucrat);
-			pardon->execute(bureaucrat);
-			delete pardon;
-		}
-
-		if (unknown)
-			delete unknown;
+		bureaucrat.signForm(*shrubbery);
+		bureaucrat.executeForm(*shrubbery);
+		delete shrubbery;
 	}
-	catch (const std::exception &e)
+
+	if (robotomy)
 	{
-		std::cerr << e.what() << std::endl;
+		bureaucrat.signForm(*robotomy);
+		bureaucrat.executeForm(*robotomy);
+		delete robotomy;
 	}
+
+	if (pardon)
+	{
+		bureaucrat.signForm(*pardon);
+		bureaucrat.executeForm(*pardon);
+		delete pardon;
+	}
+
+	delete unknown;
 
 	return 0;
 }

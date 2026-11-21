@@ -17,7 +17,7 @@ class AForm
 		AForm(std::string name, const int sign_grade, const int execute_grade);
 		AForm(const AForm &next);
 		AForm& operator=(const AForm &next);
-		~AForm();
+		virtual ~AForm();
 		std::string getName() const;
 		bool is_it_signed() const;
 		void beSigned(Bureaucrat &bureaucrat);
@@ -43,6 +43,6 @@ class AForm
 
 };
 
-std::ostream &operator<<(std::ostream &os, AForm &next);
+std::ostream &operator<<(std::ostream &os, const AForm &next);
 
 #endif

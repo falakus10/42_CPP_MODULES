@@ -8,10 +8,7 @@ Bureaucrat :: Bureaucrat() : _name("James Gordon"), _grade(3)
 Bureaucrat :: Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (grade < HIGHEST_GRADE)
-	{
-		std::cout << "ne alakaaa" <<std::endl;
 		throw GradeTooHighException();
-	}
 	else if (grade > LOWEST_GRADE)
 		throw GradeTooLowException();
 	else
@@ -85,14 +82,29 @@ const char *Bureaucrat :: GradeTooLowException :: what() const throw()
 
 void Bureaucrat:: signForm(AForm &form)
 {
-	if (form.get_grade_to_sign() < this->_grade)
-	{
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade didn't allow it" << std::endl;
-	}
-	else
+	try
 	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName()
+			<< " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat:: executeForm(const AForm &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't execute " << form.getName()
+			<< " because " << e.what() << std::endl;
 	}
 }
 

@@ -19,7 +19,7 @@ class Form
 		Form& operator=(const Form &next);
 		~Form();
 		std::string getName() const;
-		bool is_it_signed();
+		bool is_it_signed() const;
 		void beSigned(Bureaucrat &bureaucrat);
 		int get_grade_to_sign() const;
 		int get_grade_to_execute() const;
@@ -37,6 +37,6 @@ class Form
 
 };
 
-std::ostream &operator<<(std::ostream &os, Form &next);
+std::ostream &operator<<(std::ostream &os, const Form &next);
 
 #endif

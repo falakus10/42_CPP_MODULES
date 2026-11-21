@@ -30,8 +30,9 @@ void RobotomyRequestForm :: execute(const Bureaucrat &bureaucrat) const
 		throw AForm::FormNotSignedException();
 	else if (bureaucrat.getGrade() > this->get_grade_to_execute())
 		throw AForm::GradeTooLowException();
+	std::cout << "Bzzzzzz... ";
 	if (rand() % 2)
-		std::cout << "Bzzzz";
+		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << "Bzzzzzz... " << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
+		std::cout << this->_target << " robotomy failed." << std::endl;
 }
