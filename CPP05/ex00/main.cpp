@@ -2,9 +2,12 @@
 
 int main()
 {
+	std::cout << "---------------- Bureacrat -----------------" << std::endl;
+
 	Bureaucrat a;
 	Bureaucrat b("Taha", 1);
 	Bureaucrat c("Umut", 150);
+	std::cout << "---------------- TRY -----------------" << std::endl;
 
 	try
 	{
@@ -12,11 +15,11 @@ int main()
 	}
 	catch (Bureaucrat :: GradeTooHighException &message)
 	{
-		std::cerr << "Can't set grade of " << a.getName() << " " << message.what() << std::endl;
+		std::cout << "Can't set grade of " << a.getName() << " " << message.what() << std::endl;
 	}
 	catch (Bureaucrat :: GradeTooLowException &message)
 	{
-		std::cerr <<"Can't set grade of " << a.getName() << " " << message.what() << std::endl;
+		std::cout <<"Can't set grade of " << a.getName() << " " << message.what() << std::endl;
 	}
 
 	try
@@ -25,7 +28,7 @@ int main()
 	}
 	catch (Bureaucrat :: GradeTooHighException &message)
 	{
-		std::cerr <<"Can't increment grade of " << b.getName() << " " << message.what() << std::endl;
+		std::cout <<"Can't increment grade of " << b.getName() << " " << message.what() << std::endl;
 	}
 
 	try
@@ -34,8 +37,9 @@ int main()
 	}
 	catch (Bureaucrat :: GradeTooLowException &message)
 	{
-		std::cerr <<"Can't decrement grade of " << c.getName() << " " << message.what() << std::endl;
+		std::cout <<"Can't decrement grade of " << c.getName() << " " << message.what() << std::endl;
 	}
+	std::cout << "---------------- DESTRUCTORS -----------------" << std::endl;
 
 	return (0);
 }

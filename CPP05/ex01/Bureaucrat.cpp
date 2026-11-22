@@ -82,19 +82,20 @@ const char *Bureaucrat :: GradeTooLowException :: what() const throw()
 
 void Bureaucrat:: signForm(Form &form)
 {
-	if (form.get_grade_to_sign() < this->_grade)
-	{
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because his grade didn't allow it" << std::endl;
-	}
-	else
+	try
 	{
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->getName() << " Couldn't sign " << form.getName() << " reason " <<e.what() << '\n';
+	}
+	
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &next)
 {
-    os << "Bureaucrat Name: "<<next.getName() << " \nBureaucrat Grade: " << next.getGrade()<< std::endl;
+    os << next.getName() << ", bureaucrat grade " << next.getGrade() << "." << std::endl;
     return (os);
 }

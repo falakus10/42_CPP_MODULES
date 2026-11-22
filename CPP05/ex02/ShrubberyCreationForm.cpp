@@ -34,7 +34,7 @@ void ShrubberyCreationForm :: execute(const Bureaucrat &bureaucrat) const
 	std::ofstream outfile((this->_target + "_shrubbery").c_str());
 	if (!outfile)
 	{
-		std::cerr << "Error: Could not create file." << std::endl;
+		std::cout << "Error: Could not create file." << std::endl;
 		return;
 	}
 
